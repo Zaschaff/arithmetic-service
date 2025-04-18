@@ -8,9 +8,10 @@
 # Usage:
 #   ./build-image.sh
 
-set -e
+set -u # or set -o nounset
+"$VERSION"
 
 echo "Building Docker image..."
-docker build -t arithmetic-service:latest --file Dockerfile .
+docker build -t ghcr.io/hbahramian/arithmetic-service:$VERSION --file ./Dockerfile .
 
 echo "Docker image build complete." 
